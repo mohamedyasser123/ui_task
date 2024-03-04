@@ -63,6 +63,8 @@ flutter:
      - images/Profile-Male-PNG.png
      - icons/chat.png
      - icons/notification.png
+     - icons/filter.png
+     - images/1533883.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
