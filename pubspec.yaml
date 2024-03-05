@@ -66,8 +66,13 @@ flutter:
      - icons/notification.png
      - icons/filter.png
      - images/1533883.png
-     - images/picture1.png
-     - images/picture2.png
+     - images/facebook.png
+     - images/facebook-messenger.png
+     - images/android.png
+     - images/apple.png
+     - images/dev.png
+     - images/visual-basic.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

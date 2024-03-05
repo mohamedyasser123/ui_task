@@ -20,9 +20,14 @@ class home_screen extends StatefulWidget {
 
 class _HomeScreenState extends State<home_screen> {
   final List<String> pictureList = [
-    'images/picture1.png',
-    'images/picture2.png',
-    'images/picture1.png',
+    'images/facebook.png',
+    'images/facebook-messenger.png',
+
+          'images/android.png',
+        ' images/apple.png',
+        ' images/dev.png',
+        ' images/visual-basic.png',
+
     // Add more picture asset paths as needed
   ];
   final List<Map<String, String>> videoList = [
@@ -40,6 +45,7 @@ class _HomeScreenState extends State<home_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: _buildnavbottom(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -51,17 +57,30 @@ class _HomeScreenState extends State<home_screen> {
                 _buildTopBar(),
                 SizedBox(height: 10),
                 _buildSearchBar(),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 _buildVotingSection(),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 Text(
                   'Influencers Community',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 20),
-                _buildVideoList(),
-                SizedBox(height: 20,),
+                SizedBox(height: 10),
                 _buildPictureList(),
+                SizedBox(height: 10,),
+                Text('Our Parteners',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                _buildPictureList(),
+                SizedBox(height: 10,),
+                Text('Charging Companies',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                _buildPictureList(),
+                SizedBox(height: 10,),
+                Text('Succes Parteners', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                _buildPictureList(),
+
+
+                
+                
               ],
             ),
           ),
@@ -199,29 +218,61 @@ class _HomeScreenState extends State<home_screen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start, // Aligns the title to the start (left)
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 5, bottom: 10), // Adjust padding as needed
-          child: Text(
-            'Our Parteners', // Your title text
-            style: TextStyle(
-              fontSize: 20, // Adjust font size as needed
-              fontWeight: FontWeight.bold, // Adjust font weight as needed
-            ),
-          ),
-        ),
+
         Container(
-          height: 200, // Adjust the height as needed
+          height: 100,
+          // Adjust the height as needed
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: pictureList.length,
             itemBuilder: (context, index) {
               return Container(
-                width: 160, // Adjust the width as needed
+                height: 180,
+
+                width: 120, // Adjust the width as needed
                 margin: EdgeInsets.symmetric(horizontal: 5), // Add some spacing
                 child: Image.asset(pictureList[index]), // Load the picture
               );
             },
           ),
+        ),
+      ],
+    );
+  }
+  Widget _buildnavbottom() {
+    return Container(
+      margin: EdgeInsets.all(20), // Add margin from left and right edges of the screen
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(30)), // Apply border radius to all corners
+        child: BottomAppBar(
+          color: Colors.black, // Background color
+          child: Container(
+            height: 60, // Adjust the height as needed
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildNavItem(Icons.home, 'Community', true),
+                _buildNavItem(Icons.person_outline, 'Influencers', false),
+                _buildNavItem(Icons.business_center, 'Partners', false),
+                _buildNavItem(Icons.offline_bolt, 'Charging', false),
+                // ... Add more items as needed
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem(IconData icon, String label, bool isActive) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, color: isActive ? Colors.white : Colors.grey),
+        Text(
+          label,
+          style: TextStyle(color: isActive ? Colors.white : Colors.grey),
         ),
       ],
     );
