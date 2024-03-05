@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task/main.dart';
 import 'video_list.dart';
-class VideoCard extends StatefulWidget {
 
+class VideoCard extends StatefulWidget {
   final String videoUrl;
   final String title;
 
-  const VideoCard({super.key, required this.videoUrl, required this.title});
+  const VideoCard({
+    Key? key, // Added the Key parameter
+    required this.videoUrl,
+    required this.title,
+  }) : super(key: key); // Added super(key: key) to the constructor
+
   @override
   State<VideoCard> createState() => _VideoCardState();
 }
@@ -22,7 +27,7 @@ class _VideoCardState extends State<VideoCard> {
           AspectRatio(
             aspectRatio: 16 / 9,
             child: Image.network(
-              widget. videoUrl,
+              widget.videoUrl,
               fit: BoxFit.cover,
             ),
           ),

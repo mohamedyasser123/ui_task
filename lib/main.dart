@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task/Screen/home_Screen.dart';
 import 'package:ui_task/constans.dart';
+import 'package:video_player/video_player.dart';
 
 void main() {
   runApp(const ui_task());
